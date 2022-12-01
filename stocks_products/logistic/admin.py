@@ -27,5 +27,3 @@ class StockAdmin(admin.ModelAdmin):
 @admin.register(StockProduct)
 class StockProductAdmin(admin.ModelAdmin):
     list_display = ['stock', 'product', 'quantity', 'price']
-
-

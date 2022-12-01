@@ -36,14 +36,18 @@ class StockSerializer(serializers.ModelSerializer):
         positions = validated_data.pop('positions')
         stock = super().update(instance, validated_data)
         for position in positions:
-            current_product = StockProduct.objects.filter(stock=stock, product=position['product'])
+            current_product = StockProduct.objects.filter(
+                stock=stock, product=position['product'])
             if current_product:
-                sum_quantity = position['quantity'] + current_product[0].quantity
-                adv_price = ((position['price'] * position['quantity'])
-                             + (current_product[0].price * current_product[0].quantity)) / sum_quantity
+                sum_quantity = position['quantity'] + \
+                               current_product[0].quantity
+                adv_price = ((position['price'] * position['quantity']) +
+                             (current_product[0].price *
+                              current_product[0].quantity)) / sum_quantity
                 defaults = dict(quantity=sum_quantity, price=adv_price)
             else:
-                defaults = dict(quantity=position['quantity'], price=position['price'])
+                defaults = dict(quantity=position['quantity'],
+                                price=position['price'])
             StockProduct.objects.update_or_create(
                 stock=stock,
                 product=position['product'],

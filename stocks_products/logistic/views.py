@@ -20,5 +20,3 @@ class StockViewSet(ModelViewSet):
     ordering = ['-id']
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['products', ]
-
-
