@@ -60,7 +60,7 @@ jobs:
           ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
 
       - name: Deploy to server
-        uses: appleboy/ssh-actions@main
+        uses: appleboy/ssh-action@main
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
