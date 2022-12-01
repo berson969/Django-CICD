@@ -1,0 +1,109 @@
+# примеры API-запросов
+
+@baseUrl = http://berson.website:8000/api/v1
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+# {
+#   "title": "Помидор",
+#   "description": "Лучшие помидоры на рынке"
+# }
+{
+  "title": "Макароны",
+  "description": "Сырые итальянские"
+}
+
+###
+
+# получение продуктов
+GET {{baseUrl}}/products/?page=1
+Content-Type: application/json
+
+###
+
+# обновление продукта
+PATCH {{baseUrl}}/products/1/
+Content-Type: application/json
+
+{
+  "description": "Фарфоровые"
+}
+
+###
+
+# удаление продукта
+DELETE {{baseUrl}}/products/5/
+Content-Type: application/json
+
+###
+
+# поиск продуктов по названию и описанию
+GET {{baseUrl}}/products/?search=рынк
+Content-Type: application/json
+
+###
+
+# создание склада
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "склад 31",
+  "positions": [
+    {
+      "product": 2,
+      "quantity": 250,
+      "price": 120.50
+    },
+    {
+      "product": 3,
+      "quantity": 100,
+      "price": 180
+    }
+  ]
+}
+
+###
+
+# обновляем записи на складе
+PATCH {{baseUrl}}/stocks/31/
+Content-Type: application/json
+
+{
+  "positions": [
+    {
+      "product": 4,
+      "quantity": 100,
+      "price": 130.80
+    },
+    {
+      "product": 3,
+      "quantity": 150,
+      "price": 180
+    },
+    {
+      "product": 6,
+      "quantity": 10,
+      "price": 22
+    }
+  ]
+}
+
+###
+
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?products=2
+Content-Type: application/json
+
+###
+
+# паганация продуктов
+GET {{baseUrl}}/products/?page=1
+
+###
+
+# паганация  складов
+GET {{baseUrl}}/stocks/?page=2
+
