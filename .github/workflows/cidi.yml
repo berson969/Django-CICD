@@ -6,7 +6,7 @@ on:
 
 jobs:
   tests:
-    runs: ubuntu 20.04
+    runs_on: ubuntu 20.04
     env:
       POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
       POSTGRES_NAME: ${{ secrets.POSTGRES_NAME }}
@@ -58,7 +58,7 @@ jobs:
           DB_HOST: ${{ env.POSTGRES_HOST }}
           DB_PORT: ${{ env.POSTGRES_PORT }}
           ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
-          
+
 
 
 
