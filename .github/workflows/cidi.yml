@@ -6,7 +6,7 @@ on:
 
 jobs:
   tests:
-    runs_on: ubuntu 20.04
+    runs-on: ubuntu 20.04
     env:
       POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
       POSTGRES_NAME: ${{ secrets.POSTGRES_NAME }}
