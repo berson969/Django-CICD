@@ -69,7 +69,7 @@ jobs:
 #          script: expect /home/berson/Django-CIDI/pull.exp
         uses: fifsky/ssh-action@master
         host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
+        user: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_KEY }}
         command: expect /home/berson/Django-CIDI/pull.exp
 
