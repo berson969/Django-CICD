@@ -67,10 +67,11 @@ jobs:
 ##          password: ${{ secrets.SSH_PASSWORD }}
 #          key: ${{ secrets.SSH_KEY }}
 #          script: expect /home/berson/Django-CIDI/pull.exp
-        uses: fifsky/ssh-action@master
-        host: ${{ secrets.SSH_HOST }}
-        user: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_KEY }}
-        command: expect /home/berson/Django-CIDI/pull.exp
+        with:
+          uses: fifsky/ssh-action@master
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          command: expect /home/berson/Django-CIDI/pull.exp
 
 
