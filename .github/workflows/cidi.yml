@@ -60,13 +60,17 @@ jobs:
 #          ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
 
       - name: Deploy to server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-#          password: ${{ secrets.SSH_PASSWORD }}
-          key: ${{ secrets.SSH_KEY }}
-          script: expect /home/berson/Django-CIDI/pull.exp
-
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.SSH_HOST }}
+#          username: ${{ secrets.SSH_USER }}
+##          password: ${{ secrets.SSH_PASSWORD }}
+#          key: ${{ secrets.SSH_KEY }}
+#          script: expect /home/berson/Django-CIDI/pull.exp
+        uses: fifsky/ssh-action@master
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        command: expect /home/berson/Django-CIDI/pull.exp
 
 
