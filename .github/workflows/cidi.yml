@@ -67,7 +67,5 @@ jobs:
 #          password: ${{ secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_KEY }}
 #          script: expect /home/berson/Django-CIDI/pull.exp
-          script: spawn /home/berson/Django-CIDI/pull.sh
-
-
+          script: bash /home/berson/Django-CIDI/pull.sh
 
