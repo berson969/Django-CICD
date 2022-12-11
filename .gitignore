@@ -3,3 +3,7 @@
 stocks_products/README.md
 stocks_products/static/
 venv/
+__pycache__/
+logistic/__pycache__/
+logistic/migrations/__pycache__/
+stocks_products/__pycache__/
