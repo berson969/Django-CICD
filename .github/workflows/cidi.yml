@@ -45,7 +45,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Linter
-        run: flake8 logistic  --exclude=stocks_products/logistic/migrations
+        run: flake8 logistic  --exclude=logistic/migrations
 
       - name: Tests
         run: python stocks_products/manage.py test
